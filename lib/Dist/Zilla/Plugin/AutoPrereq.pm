@@ -8,9 +8,9 @@ package Dist::Zilla::Plugin::AutoPrereq;
 use Dist::Zilla::Util;
 use Moose;
 use MooseX::Has::Sugar;
-use Perl::PrereqScanner;
+use Perl::PrereqScanner 0.100521;
 use PPI;
-use Version::Requirements;
+use Version::Requirements 0.100520;
 use version;
 
 with 'Dist::Zilla::Role::FixedPrereqs';
@@ -43,9 +43,7 @@ sub prereq {
         push @modules, $module;
 
         # parse a file, and merge with existing prereqs
-        my $file_req = Perl::PrereqScanner->new->scan_string(
-            $file->content
-        );
+        my $file_req = Perl::PrereqScanner->new->scan_string($file->content);
 
         $req->add_requirements($file_req);
     }
