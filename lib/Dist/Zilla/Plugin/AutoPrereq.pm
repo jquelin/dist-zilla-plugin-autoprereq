@@ -10,7 +10,7 @@ use Moose;
 use MooseX::Has::Sugar;
 use Perl::PrereqScanner 0.100521;
 use PPI;
-use Version::Requirements 0.100520;
+use Version::Requirements 0.100630; # merge with 0-min bug
 use version;
 
 with 'Dist::Zilla::Role::FixedPrereqs';
