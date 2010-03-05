@@ -56,8 +56,8 @@ sub prereq {
         my $skip = $self->skip;
         my $re   = qr/$skip/;
 
-        foreach my $k ( keys %prereqs ) {
-            $req->clear_requirements($k) if $k =~ $re;
+        foreach my $k ( $req->required_modules ) {
+            $req->clear_requirement($k) if $k =~ $re;
         }
     }
 
